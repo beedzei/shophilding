@@ -651,6 +651,27 @@ sticky-header header {
   z-index: 4;
 }
 
+@media screen and (min-width: 990px) {
+  .mega-menu:hover .mega-menu__content,
+  .mega-menu__content:hover {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  
+  .mega-menu .mega-menu__content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+  }
+  
+  .mega-menu__content {
+    transition: opacity 150ms ease, transform 150ms ease, visibility 150ms ease;
+  }
+}
+
 @media (prefers-reduced-motion) {
   details[open] > .header__submenu, details.open > .header__submenu {
     opacity: 1;

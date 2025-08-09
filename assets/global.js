@@ -273,7 +273,7 @@ class ToastMessage extends HTMLElement
     this.contentWrapper.textContent = str;
     this.contentWrapper.classList.add(`alert--${type}`);
   }
- 
+
   close() {
     this.classList.remove('open');
     setTimeout(() => {

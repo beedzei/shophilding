@@ -1,0 +1,59 @@
+{% assign show_product = false %}
+
+
+{% for tag in customer.tags %}
+
+	{% if tag contains 'custtag_' %}
+
+   			{% assign customer_tag_isolated = tag | remove: "custtag_" %}
+			
+			{% break %}
+
+	{% endif %}
+
+
+{% endfor %}
+
+
+{% assign productTags = product.tags | join:',' %}
+
+{% if productTags contains 'prodtag_' %}
+
+	{% for tag in product.tags %}
+
+		{% if tag contains 'prodtag_' %}
+
+			
+				{% assign product_tag_isolated = tag | remove: "prodtag_" %}
+
+			
+				{% if customer_tag_isolated == product_tag_isolated or customer_tag_isolated == 'all_2024' %}
+
+   					{% assign show_product = true %}
+					{% break %}
+
+				{% else %}
+
+					{% assign show_product = false %}
+
+				{% endif %}
+
+		{% endif %}
+
+	{% endfor %}
+{% endif %}
+
+
+
+{% assign apo = false %}
+
+{% for tag in product.tags %}
+
+	{% if tag contains 'APO' %}
+
+   			{% assign apo = true %}
+
+	{% endif %}
+
+
+{% endfor %}
